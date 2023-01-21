@@ -9,6 +9,6 @@ module.exports = class JobController {
 
   async create(req, res) {
     let data = await jobService.create(req.body);
-    return res.json(data);
+    return res.json(JobData.to(data));
   }
 };
