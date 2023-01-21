@@ -1,8 +1,10 @@
+const { JobData } = require('./job.data');
 const jobService = require('./job.service');
 module.exports = class JobController {
 
-  async findAll() {
-    return jobService.findAll();
+  async findAll(req, res) {
+    let datas = await jobService.findAll();
+    return res.json(datas.map((data) => JobData.to(data)))
   }
 
   async create(req, res) {

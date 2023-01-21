@@ -6,9 +6,9 @@ const JobEntity = require('./job.schema');
   }
 
   findAll() {
-    return JobEntity.find({});
+    let datas = JobEntity.find({});
+    return datas;
   }
-
 };
 
 module.exports = new JobService();
