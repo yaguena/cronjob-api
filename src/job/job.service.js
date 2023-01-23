@@ -19,6 +19,10 @@ const JobEntity = require('./job.schema');
     JobEntity.updateOne({code}, data);
     return this.findOne(code);
   }
+
+  delete(code) {
+    JobEntity.remove(code);
+  }
 };
 
 module.exports = new JobService();

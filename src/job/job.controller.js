@@ -23,4 +23,10 @@ module.exports = class JobController {
     let data = await jobService.update(code, JobUpdateData.to(req.body));
     return res.json(JobData.to(data));
   }
+
+  async delete(req, res) {
+    let code = req.params.code;
+    await jobService.delete(code);
+    return res.status(202).json({message: 'DELETE Request Called'});
+  }
 };
